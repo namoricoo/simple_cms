@@ -85,3 +85,5 @@ URL parameters
    e) Introducing migrations
    
    f)Generating a migration
+   
+   g)Running a migration
