@@ -83,3 +83,5 @@ URL parameters
   	d) Rake
 
    e) Introducing migrations
+   
+   f)Generating a migration
