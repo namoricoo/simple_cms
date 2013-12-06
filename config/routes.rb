@@ -10,6 +10,12 @@ SimpleCms::Application.routes.draw do
    
    get "demo/redirect_external_link"
    
+   get "subjects/list"
+   
+   get "subjects/show/:id" => "subjects#show"
+   
+   #get "subjects/show/posts(.:format)"
+   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
