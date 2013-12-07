@@ -26,4 +26,22 @@ class SubjectsController < ApplicationController
       render('new')
     end    
   end
+
+  def edit
+    @subject =  Subject.find(params[:id])  
+  end
+
+  def update
+    #Find object object using form parameters
+    @subject = Subject.find(params[:id]) 
+    # Save the object
+    temp_par = params.require(:subject).permit(:name, :position, :visible)
+    if @subject.update_attributes(temp_par)
+      #If updatesucceeds, redirect to the list action
+      redirect_to(action: 'show', id: @subject.id)
+    else
+      #If save fails, redisplay the form so user can fix problem
+      render('edit')
+    end    
+  end
 end
