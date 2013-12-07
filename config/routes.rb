@@ -18,11 +18,13 @@ SimpleCms::Application.routes.draw do
    
    get "subjects/edit"
    
+   get "subjects/delete"
+   
    post 'subjects/create'
    
    post 'subjects/update'
    
-   
+   post 'subjects/destroy'
    
    #get "subjects/show/posts(.:format)"
    

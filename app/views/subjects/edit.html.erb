@@ -1,7 +1,7 @@
 <%= link_to("<< Back to list",{action: 'list'}, class: 'back-link') %>
 <div class="subject new">
 	<h2>Create Form</h2>
-	<%= form_for(:subject, :url => {action: 'update', id: @subject.id}) do |f| %>
+	<%= form_for(:subject, url: {action: 'update', id: @subject.id}) do |f| %>
   
     <table summary="Subject form fields">
       <tr>
