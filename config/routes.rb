@@ -14,6 +14,11 @@ SimpleCms::Application.routes.draw do
    
    get "subjects/show/:id" => "subjects#show"
    
+   get "subjects/new"
+   
+   post 'subjects/create'
+   #get "subjects/create"
+   
    #get "subjects/show/posts(.:format)"
    
   # The priority is based upon order of creation: first created -> highest priority.

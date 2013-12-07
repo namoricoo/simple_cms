@@ -1,10 +1,11 @@
 <div class="subject list">
 	<h2>Subjects</h2>
-	
+	<%= link_to("new fieds",{action: 'new'}, class: 'new-link') %>
+    
 	<table class="listing" summary="Subject list">
-		<tr class="header">
-			<th>&nbsp;</th>
+		<tr class="header">			
 			<th>Subject</th>
+			<th>Position</th>
 			<th>Visible</th>
 			<th>Pages</th>
 			<th>Actions</th>
@@ -13,6 +14,7 @@
 		<tr>
 			
 			<td><%= subject.name %></td>
+			<td><%= subject.position %></td>
 			<td class="center"><%= subject.visible ? 'Yes' : 'No' %></td>
 			
 			<td class="action">
