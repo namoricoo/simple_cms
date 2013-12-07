@@ -4,3 +4,4 @@ Chapter 9 section 6
  * Create action: Create
  * Update actions: Edit/update
  * Delete actions: Delete/destroy
+ * Flash hash

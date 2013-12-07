@@ -20,6 +20,7 @@ class SubjectsController < ApplicationController
     # Save the object
     if @subject.save
       #If save succeeds, redirect to the list action
+      set_flash_notice("Subject created.")
       redirect_to(action: 'list')
     else
       #If save fails, redisplay the form so user can fix problem
@@ -38,7 +39,8 @@ class SubjectsController < ApplicationController
     temp_par = params.require(:subject).permit(:name, :position, :visible)
     if @subject.update_attributes(temp_par)
       #If updatesucceeds, redirect to the list action
-      redirect_to(action: 'show', id: @subject.id)
+      set_flash_notice("Subject updated.")
+      redirect_to(action: 'show', id: @subject.id)      
     else
       #If save fails, redisplay the form so user can fix problem
       render('edit')
@@ -52,9 +54,29 @@ class SubjectsController < ApplicationController
   def destroy
     subject =  find_subject  
     subject.destroy
+    set_flash_notice("subject destroyed.")
     redirect_to(action: 'list')
   end
+
   def find_subject
     Subject.find(params[:id])    
+  end
+
+  def find_subject_by_id
+    Subject.find(params[:id])    
+  end
+
+  def set_flash_notice(message)
+    flash[:notice] = message
+  end
+
+  def self.display_flash_notice
+    if flash[:notice].blank? == false
+      flash[:notice]
+    end
+  end
+  
+  def set_flash_name_notice(name,notice)
+    flash[name] = notice
   end
 end
