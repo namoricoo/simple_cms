@@ -1,7 +1,13 @@
 class SubjectsController < ApplicationController
+  #layout 'application'
+  layout 'admin'  
+ 
+  
   def index
     list
-    render('list')
+    render('subjects/list')
+    #render('demo/hello')  # Most common way to do it
+   # render('list')
   end
   
   def list
@@ -12,7 +18,7 @@ class SubjectsController < ApplicationController
   def show    
     @subject =  Subject.find(params[:id])
   end
-  
+
   def create
     #Instantiate a new object using form parameters
     temp_par = params.require(:subject).permit(:name, :position, :visible)
@@ -21,7 +27,7 @@ class SubjectsController < ApplicationController
     if @subject.save
       #If save succeeds, redirect to the list action
       set_flash_notice("Subject created.")
-      redirect_to(action: 'list')
+      redirect_to(action: 'subjects/list')
     else
       #If save fails, redisplay the form so user can fix problem
       render('new')
@@ -40,7 +46,7 @@ class SubjectsController < ApplicationController
     if @subject.update_attributes(temp_par)
       #If updatesucceeds, redirect to the list action
       set_flash_notice("Subject updated.")
-      redirect_to(action: 'show', id: @subject.id)      
+      redirect_to(action: 'subjects/show', id: @subject.id)      
     else
       #If save fails, redisplay the form so user can fix problem
       render('edit')
@@ -60,23 +66,5 @@ class SubjectsController < ApplicationController
 
   def find_subject
     Subject.find(params[:id])    
-  end
-
-  def find_subject_by_id
-    Subject.find(params[:id])    
-  end
-
-  def set_flash_notice(message)
-    flash[:notice] = message
-  end
-
-  def self.display_flash_notice
-    if flash[:notice].blank? == false
-      flash[:notice]
-    end
-  end
-  
-  def set_flash_name_notice(name,notice)
-    flash[name] = notice
-  end
+  end  
 end
