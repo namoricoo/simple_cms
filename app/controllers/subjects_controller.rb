@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
-  #layout 'application'
-  layout 'admin'  
+  layout 'application'
+  #layout 'admin'  
  
   
   def index
@@ -30,7 +30,7 @@ class SubjectsController < ApplicationController
       redirect_to(action: 'subjects/list')
     else
       #If save fails, redisplay the form so user can fix problem
-      render('new')
+      render('subjects/new')
     end    
   end
 
